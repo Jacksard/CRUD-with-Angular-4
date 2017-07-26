@@ -1,0 +1,64 @@
+<div class="container">
+<div class="row">
+  <div class="coloum">
+    <div class="col-sm-8">
+      <h3>Staff List:</h3>
+        <h4 *ngIf="staff[0] == null" >List is Empty</h4>
+          <ul class="list-group">
+            <li  class="list-group-item well" *ngFor="let person of staff"><b>Name:</b> {{person.name}}<br> <b>Age:</b>{{person.age}}<br> <b>Address:</b>{{person.address}}
+
+              <button class="btn btn-danger"  (click)="onDeleteStaff(person)">X</button>
+              <button class="btn btn-default" (click)="extractId(person)" (click)="userEdit = ! userEdit">...</button>
+
+
+            </li>
+
+
+          </ul>
+    </div>
+  </div>
+
+<div class="coloum">
+  <div class="col-sm-4">
+      <h4><b>Add new staff member:</b></h4>
+        <form>
+        <label>Name:<br>        <input type="text" name="name"    [(ngModel)]="newStaffName"></label><br>
+        <label>Age: (Number >= 18)<br><input type="text" name="age" [(ngModel)]="newStaffAge"></label><br>
+        <label>Address: <br>    <input type="text" name="address" [(ngModel)]="newStaffAddress"></label><br>
+        <button class="btn btn-primary"  (click)="onAddStaff()"  >Add to staff</button>
+        <br>
+        <hr>
+            <h4 *ngIf= "userEdit"><b>Edit:</b></h4>
+                    <form *ngIf= "userEdit">
+                      <label>Name:<br>        <input type="text" name="name"    [(ngModel)]="editStaffName"></label><br>
+                      <label>Age: (Number >= 18)<br><input type="text" name="age" [(ngModel)]="editStaffAge"></label><br>
+                      <label>Address: <br>    <input type="text" name="address" [(ngModel)]="editStaffAddress"></label><br>
+                      <button class="btn btn-success"  (click)="onEditStaff(person)"  >Apply Changes</button>
+                      <div class="alert alert-danger">
+                        <strong>{{ message }}</strong>
+                      </div>
+                    </form>
+
+
+        </form>
+  </div>
+</div>
+</div>
+
+
+
+
+
+  <p *ngIf="underAge !=false">Please Enter Details</p>
+
+
+
+<!--
+<div class="container">
+
+<h4>About to add:</h4>
+  <p>{{newStaffName}}</p>
+  <p>{{newStaffAge}}</p>
+  <p>{{newStaffAddress}}</p>
+</div>
+-->

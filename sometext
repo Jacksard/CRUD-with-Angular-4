@@ -1,0 +1,8 @@
+<h4 *ngIf= "userEdit">Edit:</h4>
+                <form *ngIf= "userEdit">
+                        <label>Name:<br>        <input type="text" name="name"    [(ngModel)]="newStaffName"></label><br>
+                        <label>Age: (Number >= 18)<br><input type="text" name="age" [(ngModel)]="newStaffAge"></label><br>
+                        <label>Address: <br>    <input type="text" name="address" [(ngModel)]="newStaffAddress"></label><br>
+                        <button class="btn btn-success"  (click)="onAddStaff()"  >Apply Changes</button>
+
+                </form>
