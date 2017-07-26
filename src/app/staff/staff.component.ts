@@ -69,6 +69,7 @@ export class StaffComponent implements OnInit {
   if (this.newStaffName !== '' && this.newStaffAge >= 18 && this.newStaffAddress !== '') {
     this.staff.push(this.newStaff);
     this.newStaff = {name: '', age: null, address: ''};
+
   } else {
     return this.validated = false;
   }

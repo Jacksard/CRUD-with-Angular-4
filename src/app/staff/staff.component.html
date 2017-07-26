@@ -1,16 +1,22 @@
 <div class="container">
+
+<div class="row">
+  <h2>Angular 4 CRUD App</h2>
+</div>
+
+</div>
+
+
+<div class="container">
 <div class="row">
   <div class="coloum">
     <div class="col-sm-8">
       <h3>Staff List:</h3>
         <h4 *ngIf="staff[0] == null" >List is Empty</h4>
           <ul class="list-group">
-            <li  class="list-group-item well" *ngFor="let person of staff"><b>Name:</b> {{person.name}}<br> <b>Age:</b>{{person.age}}<br> <b>Address:</b>{{person.address}}
-
+            <li  class="list-group-item well" *ngFor="let person of staff"><b>Name:</b> {{person.name}}<br> <b>Age:</b> {{person.age}}<br> <b>Address:</b> {{person.address}}
               <button class="btn btn-danger"  (click)="onDeleteStaff(person)">X</button>
-              <button class="btn btn-default" (click)="extractId(person)" (click)="userEdit = ! userEdit">...</button>
-
-
+              <button class="btn btn-default" (click)="extractId(person)" (click)="userEdit =! userEdit">...</button>
             </li>
 
 
@@ -33,10 +39,8 @@
                       <label>Name:<br>        <input type="text" name="name"    [(ngModel)]="editStaffName"></label><br>
                       <label>Age: (Number >= 18)<br><input type="text" name="age" [(ngModel)]="editStaffAge"></label><br>
                       <label>Address: <br>    <input type="text" name="address" [(ngModel)]="editStaffAddress"></label><br>
-                      <button class="btn btn-success"  (click)="onEditStaff(person)"  >Apply Changes</button>
-                      <div class="alert alert-danger">
-                        <strong>{{ message }}</strong>
-                      </div>
+                      <button class="btn btn-success"  (click)="onEditStaff()"  >Apply Changes</button>
+
                     </form>
 
 
